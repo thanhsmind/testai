@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Learning for Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            background-color: #f8fafc;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #0077B5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fab fa-linkedin text-3xl text-blue-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">LinkedIn <span class="text-blue-600">Learning</span></span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#features" class="nav-link text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Tính năng</a>
+                        <a href="#benefits" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Lợi ích</a>
+                        <a href="#pricing" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Bảng giá</a>
+                        <a href="#testimonials" class="nav-link text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">Đánh giá</a>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center">
+                    <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Đăng ký dùng thử
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#features" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Tính năng</a>
+                <a href="#benefits" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Lợi ích</a>
+                <a href="#pricing" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Bảng giá</a>
+                <a href="#testimonials" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Đánh giá</a>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="mt-3 space-y-1">
+                        <button class="block w-full px-4 py-2 text-base font-medium text-center text-white bg-blue-600 hover:bg-blue-700 rounded-md">
+                            Đăng ký dùng thử
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                        Phát triển nhân tài với LinkedIn Learning
+                    </h1>
+                    <p class="text-xl text-blue-100 mb-8">
+                        Hơn 16,000 khóa học chất lượng cao giúp nhân viên của bạn phát triển kỹ năng cần thiết cho tương lai.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-md hover:bg-gray-100 transition duration-300">
+                            Dùng thử miễn phí
+                        </button>
+                        <button class="px-6 py-3 border border-white text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300">
+                            Xem demo
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="video-container rounded-lg shadow-2xl overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/zIHeavO8x2Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Cloud -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-semibold uppercase text-gray-500 tracking-wider mb-8">
+                Được tin dùng bởi các doanh nghiệp hàng đầu
+            </p>
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+                <div class="col-span-1 flex justify-center items-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png" alt="Microsoft">
+                </div>
+                <div class="col-span-1 flex justify-center items-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png" alt="Apple">
+                </div>
+                <div class="col-span-1 flex justify-center items-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" alt="Google">
+                </div>
+                <div class="col-span-1 flex justify-center items-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon">
+                </div>
+                <div class="col-span-1 flex justify-center items-center">
+                    <img class="h-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/IBM_logo.svg/1280px-IBM_logo.svg.png" alt="IBM">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Tính năng nổi bật</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Giải pháp học tập toàn diện cho doanh nghiệp
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    LinkedIn Learning cung cấp mọi thứ bạn cần để phát triển kỹ năng nhân viên và xây dựng văn hóa học tập.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-book-open text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Thư viện khóa học đa dạng</h3>
+                        <p class="text-gray-500">
+                            Truy cập hơn 16,000 khóa học từ các chuyên gia hàng đầu về công nghệ, kinh doanh, sáng tạo và kỹ năng mềm.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Phân tích học tập</h3>
+                        <p class="text-gray-500">
+                            Theo dõi tiến độ học tập, đo lường tác động và nhận báo cáo chi tiết về hoạt động đào tạo của nhân viên.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-user-tie text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Lộ trình học tập cá nhân hóa</h3>
+                        <p class="text-gray-500">
+                            Tạo lộ trình học tập phù hợp với nhu cầu phát triển của từng nhân viên hoặc nhóm phòng ban.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-certificate text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Chứng chỉ hoàn thành</h3>
+                        <p class="text-gray-500">
+                            Nhân viên nhận chứng chỉ LinkedIn sau khi hoàn thành khóa học, có thể chia sẻ trên hồ sơ LinkedIn.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Học mọi lúc mọi nơi</h3>
+                        <p class="text-gray-500">
+                            Ứng dụng di động cho phép học tập mọi lúc, mọi nơi với chế độ ngoại tuyến.
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="feature-card bg-white rounded-lg p-6 shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Tích hợp với LinkedIn</h3>
+                        <p class="text-gray-500">
+                            Kết nối với mạng lưới LinkedIn để khám phá các khóa học phù hợp dựa trên hồ sơ và kỹ năng.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div id="benefits" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Lợi ích</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    LinkedIn Learning mang lại giá trị gì cho doanh nghiệp?
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900">Nâng cao năng lực cạnh tranh</h3>
+                                <p class="mt-2 text-gray-500">
+                                    Đào tạo nhân viên các kỹ năng mới nhất giúp doanh nghiệp luôn dẫn đầu trong ngành.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900">Giữ chân nhân tài</h3>
+                                <p class="mt-2 text-gray-500">
+                                    Cơ hội phát triển nghề nghiệp giúp tăng 30% tỷ lệ giữ chân nhân viên.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900">Tối ưu chi phí đào tạo</h3>
+                                <p class="mt-2 text-gray-500">
+                                    Giảm 60% chi phí so với đào tạo truyền thống với hiệu quả cao hơn.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900">Thúc đẩy đổi mới</h3>
+                                <p class="mt-2 text-gray-500">
+                                    Nhân viên được trang bị kiến thức mới tạo ra nhiều ý tưởng sáng tạo hơn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img class="rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Team learning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-blue-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold mb-2">16,000+</div>
+                    <div class="text-blue-100">Khóa học chuyên sâu</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold mb-2">500+</div>
+                    <div class="text-blue-100">Chuyên gia hàng đầu</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold mb-2">27,000+</div>
+                    <div class="text-blue-100">Doanh nghiệp sử dụng</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-extrabold mb-2">90%</div>
+                    <div class="text-blue-100">Người dùng hài lòng</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Bảng giá</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Giải pháp phù hợp với mọi quy mô doanh nghiệp
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Linh hoạt theo nhu cầu và ngân sách của bạn
+                </p>
+            </div>
+
+            <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0">
+                <!-- Basic Plan -->
+                <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Cơ bản</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Phù hợp với doanh nghiệp nhỏ
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">$29.99</span>
+                            <span class="text-base font-medium text-gray-500">/nhân viên/tháng</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white hover:bg-gray-900">
+                            Đăng ký ngay
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Bao gồm</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Truy cập toàn bộ thư viện khóa học</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Theo dõi tiến độ học tập</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Báo cáo cơ bản</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Hỗ trợ qua email</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="border-2 border-blue-500 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Chuyên nghiệp</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Phù hợp với doanh nghiệp vừa
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">$24.99</span>
+                            <span class="text-base font-medium text-gray-500">/nhân viên/tháng</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-blue-600 border border-blue-600 rounded-md py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                            Đăng ký ngay
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Bao gồm</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Tất cả tính năng Cơ bản</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Lộ trình học tập cá nhân hóa</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Báo cáo nâng cao</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Hỗ trợ 24/7</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Tích hợp API</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                    <div class="p-6">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Doanh nghiệp</h2>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Phù hợp với tập đoàn lớn
+                        </p>
+                        <p class="mt-8">
+                            <span class="text-4xl font-extrabold text-gray-900">Liên hệ</span>
+                        </p>
+                        <button class="mt-8 block w-full bg-gray-800 border border-gray-800 rounded-md py-2 text-sm font-semibold text-white hover:bg-gray-900">
+                            Liên hệ tư vấn
+                        </button>
+                    </div>
+                    <div class="pt-6 pb-8 px-6">
+                        <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Bao gồm</h3>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Tất cả tính năng Chuyên nghiệp</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Nội dung đào tạo tùy chỉnh</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Quản trị nhiều cấp</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">Hỗ trợ chuyên dụng</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p class="ml-3 text-sm text-gray-700">SSO & SCIM</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-16">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Đánh giá</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Các doanh nghiệp nói gì về chúng tôi
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Sarah Johnson</h4>
+                            <p class="text-gray-500">Giám đốc Nhân sự, TechCorp</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600">
+                        <p>"LinkedIn Learning đã thay đổi hoàn toàn cách chúng tôi đào tạo nhân viên. Tỷ lệ hoàn thành khóa học tăng 75% so với hệ thống cũ."</p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/43.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Michael Chen</h4>
+                            <p class="text-gray-500">Giám đốc Đào tạo, FinServe</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600">
+                        <p>"Chúng tôi tiết kiệm được hơn $200,000 mỗi năm nhờ chuyển sang LinkedIn Learning mà vẫn đảm bảo chất lượng đào tạo."</p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Rodriguez">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Lisa Rodriguez</h4>
+                            <p class="text-gray-500">CEO, DesignHub</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600">
+                        <p>"Nhân viên của chúng tôi yêu thích tính linh hoạt của LinkedIn Learning. Họ có thể học bất cứ khi nào rảnh, ngay cả trên điện thoại di động."</p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-blue-700">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Sẵn sàng nâng tầm đào tạo doanh nghiệp?</span>
+                <span class="block text-blue-200">Đăng ký dùng thử miễn phí 30 ngày ngay hôm nay.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <button class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50">
+                        Bắt đầu ngay
+                    </button>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <button class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                        Liên hệ tư vấn
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Sản phẩm</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tính năng</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Bảng giá</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tích hợp</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Cập nhật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Tài nguyên</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tài liệu</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hướng dẫn</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Webinar</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Công ty</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Về chúng tôi</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Tuyển dụng</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase mb-4">Kết nối</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Đăng ký nhận bản tin:
+                    </p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Email của bạn" class="px-3 py-2 rounded-l-md text-sm w-full">
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-r-md text-sm hover:bg-blue-700">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2023 LinkedIn Learning. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Điều khoản</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Bảo mật</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
